@@ -1,0 +1,32 @@
+# JOE state file v1.0
+search
+done
+macros
+done
+files
+	"/home/namwon/.git/COMMIT_EDITMSG\n"
+done
+find
+done
+replace
+done
+run
+done
+build
+done
+grep
+done
+cmd
+done
+math
+done
+yank
+	":q\n"
+	"\n"
+	"i"
+	"q:z"
+	"wq!\n"
+done
+file_pos
+	6 "/home/namwon/.git/COMMIT_EDITMSG"
+done
