@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+{% block content %}
+  <div class="jumbo">
+    <h2>동천마켓 현황</h2>
+  </div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js'></script>
+    <!-- bar chart canvas element -->
+    <div id="canvas-holder" style="width:30%; margin:auto">
+        <h4>회원현황</h4>
+        <canvas id="pie-chart" width="50px" height="50px"></canvas>
+
+        <h4>매장별 총매출현황</h4>
+        <canvas id="bar-chart" width="50px" height="50px"></canvas>
+
+        <h4>매장별 월별 매출현황</h4>
+        <canvas id="line-chart" width="50px" height="50px"></canvas>
+    </div>
+
+    <script>
+       var ctx = document.getElementById("pie-chart") .getContext('2d');
+       new Chart(ctx, {
+           type:'pie',
+           data:{
+               labels:['VIP', 'GOLD', 'SILVER', 'BRONZE', 'NORMAL'],
+               datasets:[{
+                   label:"labels",
+                   backgroundColor:["#F7464A", "#46BFBD", "#FDB45C", "#FEDCBA", "#ABCDEF"],
+                   data:{{ values }}
+               }]
+           },
+           options:{
+               legend:{
+                   display:true,
+                   lables:{
+                       fontcolor:'rgb(255,99,132)'
+                   }
+               }
+           }
+       });
+
+       var ctx1 = document.getElementById("bar-chart").getContext('2d');
+       new Chart(ctx1,{
+           type:'bar',
+           data:{
+               labels:['매장1', '매장2', '매장3', '매장4'],
+               datasets:[{
+                   label:"매출",
+                   backgroundColor:["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9"],
+                   data:{{ values1 }}
+               }]
+           },
+           options: {
+               legend: {
+                   display: false
+               }
+           }
+       })
+
+       var ctx2 = document.getElementById("line-chart").getContext('2d');
+       new Chart(ctx2,{
+           type:'line',
+           data:{
+               labels:['1월', '2월', '3월', '4월', '5월', '6월'],
+               datasets:[{
+                   label:"매장1",
+                   type:"line",
+                   borderColor: "#3e95cd",
+                   data:{{ m1 }},
+                   fill:false
+               },{
+                   label:"매장2",
+                   type:"line",
+                   borderColor: "#8e5ea2",
+                   data:{{ m2 }},
+                   fill:false
+               },{
+                   label:"매장3",
+                   type:"line",
+                   borderColor: "#3cba9f",
+                   data:{{ m3 }},
+                   fill:false
+               },{
+                   label:"매장4",
+                   type:"line",
+                   borderColor: "#e8c3b9",
+                   data:{{ m4 }},
+                   fill:false
+               }]
+           },options: {
+               legend: {
+                   display: true
+               }
+           }
+       })
+    </script>
+
+{% endblock %}

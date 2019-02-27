@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+{% block content %}
+    <form method="post" action="/getData">
+        <fieldset style="width:80%; margin:auto">
+            <legend>Personal info</legend>
+            <label for="stat">회원상태</label><br>
+            <select id="stat" name="stat" class="custom-select" style="width:200px;height: 23px">
+                <option selected>정상회원</option>
+                <option>탈퇴</option>
+            </select><br>
+            <label for="gender">성별</label><br>
+            <select id="gender" name="gender" class="custom-select" style="width:200px;height: 23px">
+                <option selected>남</option>
+                <option>여</option>
+            </select><br>
+            <label for="married">혼인여부</label><br>
+            <select id="married" name="married" class="custom-select" style="width:200px;height: 23px">
+                <option selected>모름</option>
+                <option>기혼</option>
+                <option>미혼</option>
+            </select><br>
+            <label for="addr">주소(clean)</label><br>
+           <select id="addr" name="addr" class="custom-select" style="width:200px;height: 23px">
+                <option selected>경기기타</option>
+                <option>기타</option>
+                <option>기흥구</option>
+                <option>동천동</option>
+                <option>분당구</option>
+                <option>상현동</option>
+                <option>서울</option>
+                <option>수원</option>
+                <option>수지구</option>
+                <option>신봉동</option>
+                <option>풍덕천</option>
+            </select><br>
+            <label for="email">나이</label><br>
+            <input type="text" id="age" class="text" name="age"/><br>
+            <label for="where">주거래매장</label><br>
+            <select id="where" name="where" class="custom-select" style="width:200px;height: 23px">
+                <option selected>매장1</option>
+                <option>매장2</option>
+                <option>매장3</option>
+                <option>매장4</option>
+            </select><br>
+
+            <p></p>
+
+            <input type="submit" value="예측하기">
+        </fieldset>
+    </form>
+
+    <fieldset style="width:80%; margin:auto">
+        <legend>Result</legend>
+        <label for="result" style="width: 80%;margin: auto">회원 분류 예측 결과</label><br>
+        <div id="result" style="width: 80%;margin: auto"><b>{{ result }}</b></div><br>
+
+        <p></p>
+
+        <label for="interpret" style="width: 80%;margin: auto">회원 분류 해석 결과</label><br>
+        <div id="interpret" style="width: 80%;margin: auto"><b>{{ interpret }}</b></div><br>
+
+    </fieldset>
+{% endblock %}

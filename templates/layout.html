@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DongChun Market</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+  </head>
+  <body>
+    <header>
+      <div class="container">
+          <h1 class="logo"><a href="/" style="color:floralwhite;text-decoration: none">DongChun Market</a></h1>
+        <strong><nav>
+          <ul class="menu">
+            <li><a href="/predict">신규고객예측</a></li>
+            <li><a href="/maechul">매출예측</a></li>
+          </ul>
+        </nav></strong>
+      </div>
+    </header>
+    <div class="DongChun Market">
+      {% block content %}
+      {% endblock %}
+    </div>
+  </body>
+</html>
