@@ -5,7 +5,7 @@ from flask import request
 import numpy as np
 
 app = Flask(__name__)
-
+# 하위^ 
 @app.route('/')
 def home():
     global rf
